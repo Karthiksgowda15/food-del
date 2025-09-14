@@ -6,7 +6,7 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
-    const url = "https://food-del-backend-eight-alpha.vercel.app ";// http://localhost:4000
+    const url = "https://food-del-backend-eight-alpha.vercel.app";// http://localhost:4000
     const [token, setToken] = useState("");
 
     const [food_list, setFoodList] = useState([]);
@@ -42,13 +42,13 @@ const StoreContextProvider = (props) => {
     }
 
     const fetchFoodList = async () => {
-        const response = await axios.get(url + "/api/food/list");
+        const response = await axios.get(url+"/api/food/list");
         setFoodList(response.data.data);
     }
 
     const loadCartData = async (token) => {
     try {
-        const response = await axios.post(url + "/api/cart/get", {}, { headers: { token } });
+        const response = await axios.post(url+"/api/cart/get", {}, { headers: { token } });
         setCartItems(response.data.cartData); 
     } catch (error) {
         console.error("Error loading cart data:", error);
