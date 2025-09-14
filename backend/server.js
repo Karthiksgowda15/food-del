@@ -14,7 +14,14 @@ const port=4000
 
 // middleware
 app.use(express.json())
-app.use(cors())
+//app.use(cors())
+
+app.use(cors({
+    origin: 'https://food-del-frontend-alpha.vercel.app', // frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // allowed methods
+    credentials: true // if you're using cookies or authentication
+}));
+
 
 //db connection
 connectDB();
